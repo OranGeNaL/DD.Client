@@ -10,6 +10,16 @@
 
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
+
+            <Image x:Shared="False" x:Key="CollapseDescription" Source="/Images/button-description-collapse.png" Height="28" Width="28"/>
+            <Image x:Shared="False" x:Key="ExpandDescription" Source="/Images/button-description-expand.png" Height="28" Width="28"/>
+            <Image x:Shared="False" x:Key="TakeAlert" Source="/Images/take-alert.png" Height="28" Width="28"/>
+            <Image x:Shared="False" x:Key="CloseAlert" Source="/Images/close-alert.png" Height="28" Width="28"/>
+
+            <SolidColorBrush x:Shared="False" x:Key="ActiveAlertBackColor" Color="#FFFFDEDE"></SolidColorBrush>
+            <SolidColorBrush x:Shared="False" x:Key="ClosedAlertBackColor" Color="#FFEEEAEA"></SolidColorBrush>
         </ResourceDictionary>
+        
+        
     </Application.Resources>
 </Application>

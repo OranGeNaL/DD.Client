@@ -18,6 +18,5 @@ D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\Styles\ButtonStyle.baml
 D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\AlertsWindow.g.cs
 D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\AlertsWindow.baml
 D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\AlertWidget.g.cs
-D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\AlertWidget.baml
 D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\App.baml

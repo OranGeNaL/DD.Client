@@ -8,8 +8,10 @@
         Title="Алерты" Height="600" Width="420" ResizeMode="CanMinimize" Background="#FFFFB7B7">
 
     <Grid>
-        <StackPanel x:Name="alertsPanel">
-            
-        </StackPanel>
+        <ScrollViewer>
+            <StackPanel x:Name="alertsPanel" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True">
+
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>

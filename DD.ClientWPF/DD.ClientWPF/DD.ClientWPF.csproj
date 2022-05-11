@@ -89,6 +89,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ParametersKeeper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -130,6 +131,10 @@
     <Resource Include="Images\button-pressed-tasks.png" />
     <Resource Include="Images\button-take-alert.png" />
     <Resource Include="Images\button-tasks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\close-alert.png" />
+    <Resource Include="Images\take-alert.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

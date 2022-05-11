@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
               d:DesignWidth="380" Width="380">
 
-    <Grid Style="{StaticResource RoundedGrid}" Width="380" Background="#FFFFDEDE" Margin="0,20,0,0">
+    <Grid x:Name="Container"  Style="{StaticResource RoundedGrid}" Width="380" Background="#FFFFDEDE" Margin="0,20,0,0">
 
         <StackPanel Margin="0,1,0,5">
             <StackPanel Orientation="Horizontal" >
@@ -21,7 +21,8 @@
                 <Button Style="{StaticResource RoundedButton}"
                         x:Name="TakeButton" Width="32" Height="32" BorderBrush="#00707070"
                         HorizontalAlignment="Center" VerticalAlignment="Center"
-                        HorizontalContentAlignment="Center" Margin="4,4,0,0">
+                        HorizontalContentAlignment="Center" Margin="4,4,0,0" Background="#FFFFF4F4" Foreground="#00000000">
+                    <DynamicResource ResourceKey="TakeAlert"/>
                 </Button>
             </StackPanel>
 
@@ -29,10 +30,15 @@
                    x:Name="AlertDescription"
                    Foreground="#FF4F4F4F"
                    FontFamily="Corbel" Background="#FFFFF4F4" Width="370" Margin="0,4,0,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Stretch" FontSize="14" >
-                <TextBlock Width="350" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" MaxHeight="100">
+                <TextBlock x:Name="AlertDescriptionContent" Width="350" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" MaxHeight="100">
                     Недоступен хост hostname.aqua
                     last aviability: 22:14:13
                     hostname: hostname.aqua
+                    Ссылка на инструкцию: link
+                    Ссылка на инструкцию: link
+                    Ссылка на инструкцию: link
+                    Ссылка на инструкцию: link
+                    Ссылка на инструкцию: link
                     Ссылка на инструкцию: link
                 </TextBlock>
             </Label>
@@ -47,7 +53,8 @@
                 <Button Style="{StaticResource RoundedButton}"
                         x:Name="ExpandCollapseButton" Width="32" Height="32" BorderBrush="#00707070"
                         HorizontalAlignment="Center" VerticalAlignment="Center"
-                        HorizontalContentAlignment="Center" Margin="4,0,0,0">
+                        HorizontalContentAlignment="Center" Margin="4,0,0,0" Foreground="#00000000" Background="#FFFFF4F4">
+                    <DynamicResource ResourceKey="ExpandDescription"/>
                 </Button>
             </StackPanel>
         </StackPanel>
