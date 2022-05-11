@@ -1,0 +1,12 @@
+D:\DD.Client\DD.Client\DD.Client\bin\Debug\DD.Client.exe.config
+D:\DD.Client\DD.Client\DD.Client\bin\Debug\DD.Client.exe
+D:\DD.Client\DD.Client\DD.Client\bin\Debug\DD.Client.pdb
+D:\DD.Client\DD.Client\DD.Client\obj\Debug\DD.Client.csproj.AssemblyReference.cache
+D:\DD.Client\DD.Client\DD.Client\obj\Debug\DD.Client.csproj.SuggestedBindingRedirects.cache
+D:\DD.Client\DD.Client\DD.Client\obj\Debug\DD.Client.Form1.resources
+D:\DD.Client\DD.Client\DD.Client\obj\Debug\DD.Client.Properties.Resources.resources
+D:\DD.Client\DD.Client\DD.Client\obj\Debug\DD.Client.csproj.GenerateResource.cache
+D:\DD.Client\DD.Client\DD.Client\obj\Debug\DD.Client.csproj.CoreCompileInputs.cache
+D:\DD.Client\DD.Client\DD.Client\obj\Debug\DD.Client.exe
+D:\DD.Client\DD.Client\DD.Client\obj\Debug\DD.Client.pdb
+D:\DD.Client\DD.Client\DD.Client\obj\Debug\DD.Client.AlertsForm.resources
