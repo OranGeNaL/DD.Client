@@ -1,0 +1,36 @@
+﻿<Window x:Class="DD.ClientWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DD.ClientWPF"
+        mc:Ignorable="d"
+        Title="Дашборд Дежурного" Height="600" Width="300" WindowStyle="SingleBorderWindow" ResizeMode="CanMinimize" Background="#FFFFB7B7">
+    
+
+    <Grid>
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="alertsButton" Style="{StaticResource RoundedButton}" Grid.Column="0" Grid.Row="0" Background="#FFFFDEDE" Foreground="#00000000" Width="115" Height="115" BorderBrush="#00707070">
+                    <Image Source="Images/alerts-pic.png" Width="70"></Image>
+                </Button>
+                <Button x:Name="tasksButton" Style="{StaticResource RoundedButton}" Grid.Column="1" Grid.Row="0" Background="#FFFFDEDE" BorderBrush="#00707070" Foreground="#00000000" Width="115" Height="115">
+
+                </Button>
+            </Grid>
+        </StackPanel>
+        
+        
+    </Grid>
+    
+    
+</Window>
