@@ -36,7 +36,8 @@ namespace DD.ClientWPF
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             closing = true;
-            alertsWindow.Close();
+            if (alertsWindow != null)
+                alertsWindow.Close();
         }
 
         private void AlertsButton_Click(object sender, RoutedEventArgs e)

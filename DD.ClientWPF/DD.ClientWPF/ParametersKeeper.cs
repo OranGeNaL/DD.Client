@@ -10,6 +10,8 @@ namespace DD.ClientWPF
     {
         public static int SystemIndex = 0;
 
+        public static string SystemName = "TEMP1";
+
         public static string UserName = "User User";
 
         public const string GetAllAlerts = "";

@@ -27,6 +27,7 @@ namespace DD.ClientWPF
             UpdateWidgetContent();
 
             AlertWidget.ExpandCollapseButton.Click += ExpandCollapseButton_Click;
+            AlertWidget.TakeButton.Click += TakeButton_Click;
         }
 
         public void UpdateWidgetContent()
@@ -71,6 +72,16 @@ namespace DD.ClientWPF
                 AlertWidget.AlertDescriptionContent.MaxHeight = 600;
                 AlertWidget.ExpandCollapseButton.Content = AlertWidget.TryFindResource("CollapseDescription");
             }
+        }
+
+        public async void UpdateAlertData()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void TakeButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

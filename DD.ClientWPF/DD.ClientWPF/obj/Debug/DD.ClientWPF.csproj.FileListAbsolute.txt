@@ -20,3 +20,6 @@ D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\AlertsWindow.baml
 D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\AlertWidget.g.cs
 D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\AlertWidget.baml
 D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\App.baml
+D:\DD.Client\DD.ClientWPF\DD.ClientWPF\bin\Debug\Newtonsoft.Json.dll
+D:\DD.Client\DD.ClientWPF\DD.ClientWPF\bin\Debug\Newtonsoft.Json.xml
+D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\DD.ClientWPF.csproj.CopyComplete

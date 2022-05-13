@@ -11,6 +11,12 @@
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
 
+            <TextBlock x:Shared="False" x:Key="UserName" Text="Астахов Кирилл" FontSize="14" FontFamily="Corbel" VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+
+            <Image x:Shared="False" x:Key="AlertsWindowButton" Source="/Images/alerts-pic.png" Height="70" Width="70"/>
+
+            <Image x:Shared="False" x:Key="Settings" Source="/Images/settings.png" Height="28" Width="28"/>
             <Image x:Shared="False" x:Key="CollapseDescription" Source="/Images/button-description-collapse.png" Height="28" Width="28"/>
             <Image x:Shared="False" x:Key="ExpandDescription" Source="/Images/button-description-expand.png" Height="28" Width="28"/>
             <Image x:Shared="False" x:Key="TakeAlert" Source="/Images/take-alert.png" Height="28" Width="28"/>

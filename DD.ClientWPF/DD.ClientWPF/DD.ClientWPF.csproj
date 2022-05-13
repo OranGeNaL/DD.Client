@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -67,7 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Alert.cs" />
+    <Compile Include="HttpObjects\Alert.cs" />
     <Compile Include="AlertsWindow.xaml.cs">
       <DependentUpon>AlertsWindow.xaml</DependentUpon>
     </Compile>
@@ -107,6 +110,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -119,22 +123,15 @@
     <Resource Include="Images\alerts-pic.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\button-alerts.png" />
-    <Resource Include="Images\button-chat.png" />
     <Resource Include="Images\button-description-collapse.png" />
     <Resource Include="Images\button-description-expand.png" />
-    <Resource Include="Images\button-hovered-alerts.png" />
-    <Resource Include="Images\button-hovered-chat.png" />
-    <Resource Include="Images\button-hovered-tasks.png" />
-    <Resource Include="Images\button-pressed-alerts.png" />
-    <Resource Include="Images\button-pressed-chat.png" />
-    <Resource Include="Images\button-pressed-tasks.png" />
-    <Resource Include="Images\button-take-alert.png" />
-    <Resource Include="Images\button-tasks.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\close-alert.png" />
     <Resource Include="Images\take-alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\settings.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:DD.ClientWPF"
         mc:Ignorable="d"
         Title="Дашборд Дежурного" Height="600" Width="300" WindowStyle="SingleBorderWindow" ResizeMode="CanMinimize" Background="#FFFFB7B7">
-    
+
 
     <Grid>
         <StackPanel>
-            <Grid>
+            <Grid Width="270">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
@@ -20,17 +20,31 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <Button x:Name="alertsButton" Style="{StaticResource RoundedButton}" Grid.Column="0" Grid.Row="0" Background="#FFFFDEDE" Foreground="#00000000" Width="115" Height="115" BorderBrush="#00707070">
-                    <Image Source="Images/alerts-pic.png" Width="70"></Image>
+                <Button x:Name="alertsButton" Style="{StaticResource RoundedButton}" Grid.Column="0" Grid.Row="0" Background="#FFFFDEDE" Foreground="#00000000" Width="115" Height="115" BorderBrush="#00707070" Padding="1,1,1,1" Margin="0,10,0,10">
+                    <DynamicResource ResourceKey="AlertsWindowButton"/>
                 </Button>
-                <Button x:Name="tasksButton" Style="{StaticResource RoundedButton}" Grid.Column="1" Grid.Row="0" Background="#FFFFDEDE" BorderBrush="#00707070" Foreground="#00000000" Width="115" Height="115">
+                <Button x:Name="tasksButton" Style="{StaticResource RoundedButton}" Grid.Column="1" Grid.Row="0" Background="#FFFFDEDE" BorderBrush="#00707070" Foreground="#00000000" Width="115" Height="115" Margin="0,10,0,10">
+
+                </Button>
+                <Button x:Name="chatButton" Style="{StaticResource RoundedButton}" Grid.Column="0" Grid.Row="1" Background="#FFFFDEDE" BorderBrush="#00707070" Foreground="#00000000" Width="115" Height="115" Margin="0,10,0,10">
+
+                </Button>
+                <Button x:Name="emptyButton" Style="{StaticResource RoundedButton}" Grid.Column="1" Grid.Row="1" Background="#FFFFDEDE" BorderBrush="#00707070" Foreground="#00000000" Width="115" Height="115" Margin="0,10,0,10">
 
                 </Button>
             </Grid>
+
+            <Label Style="{StaticResource RoundedLabel}" Width="250" Height="50" Foreground="#00000000" Background="#FFFFDEDE">
+                <StackPanel Orientation="Horizontal">
+                    <Label Style="{StaticResource RoundedLabel}" Height="38" Width="194" Background="#FFFFF4F4" Foreground="#FF4F4F4F" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="1,0,0,0">
+                        <DynamicResource ResourceKey="UserName"></DynamicResource>
+                    </Label>
+                    <Button Style="{StaticResource RoundedButton}" Background="#FFFFF4F4" BorderBrush="#00707070" Foreground="#00000000" Width="38" Height="40" Margin="6,0,0,0">
+                        <DynamicResource ResourceKey="Settings"></DynamicResource>
+                    </Button>
+                </StackPanel>
+            </Label>
+            
         </StackPanel>
-        
-        
     </Grid>
-    
-    
 </Window>
