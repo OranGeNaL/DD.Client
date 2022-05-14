@@ -27,7 +27,6 @@ namespace DD.ClientWPF
     public partial class AlertsWindow : Window
     {
         private List<AlertWidgetController> AlertWidgetControllers { get; set; } = new List<AlertWidgetController>();
-        private List<Alert> Alerts { get; set; } = new List<Alert>();
 
         DispatcherTimer timer = new DispatcherTimer();
 
@@ -36,36 +35,43 @@ namespace DD.ClientWPF
             InitializeComponent();
 
             timer.Tick += InfoUpdateTimerTick;
-            timer.Interval = new TimeSpan(0, 0, 0, 5);
+            timer.Interval = new TimeSpan(0, 0, 0, 3);
             timer.Start();
 
-            AlertWidgetControllers.Add(new AlertWidgetController(new Alert() { Description = "First new alert", Header = "Header" }));
-            AlertWidgetControllers.Add(new AlertWidgetController(new Alert() { Description = "Second new alert", Header = "Header" }));
-            AlertWidgetControllers.Add(new AlertWidgetController(new Alert() { Status = 0, Description = "Недоступен хост hostname.aqua last aviability: 22:14:13 hostname: hostname.aqua Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link", Header = "Header" }));
-            AlertWidgetControllers.Add(new AlertWidgetController(new Alert() { Status = 1, Worker = "Not User", Description = "Недоступен хост hostname.aqua last aviability: 22:14:13 hostname: hostname.aqua Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link", Header = "Header" }));
-            AlertWidgetControllers.Add(new AlertWidgetController(new Alert() { Status = 1, Worker = "User User", Description = "Недоступен хост hostname.aqua last aviability: 22:14:13 hostname: hostname.aqua Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link", Header = "Header" }));
-            AlertWidgetControllers.Add(new AlertWidgetController(new Alert() { Status = 2, Description = "Недоступен хост hostname.aqua last aviability: 22:14:13 hostname: hostname.aqua Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link", Header = "Header" }));
-            AlertWidgetControllers.Add(new AlertWidgetController(new Alert() { Description = "Недоступен хост hostname.aqua last aviability: 22:14:13 hostname: hostname.aqua Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link Ссылка на инструкцию: link", Header = "Header" }));
+
+            GetAllAlerts();
 
             foreach (var alertWidget in AlertWidgetControllers)
-                alertsPanel.Children.Add(alertWidget.AlertWidget);
+                alertWidget.UpdateWidgetContent();
+
+            SortAlertWidgetControllers();
+
+            alertsPanel.Children.Clear();
+            foreach (var alert in AlertWidgetControllers)
+            {
+                alertsPanel.Children.Add(alert.AlertWidget);
+            }
         }
 
         private void InfoUpdateTimerTick(object sender, EventArgs e)
         {
-            //Debug.WriteLine("tick");
             GetAllAlerts();
 
             foreach (var alertWidget in AlertWidgetControllers)
-                alertWidget.UpdateAlertData();
+                alertWidget.UpdateWidgetContent();
 
             SortAlertWidgetControllers();
-        }
 
+            alertsPanel.Children.Clear();
+            foreach(var alert in AlertWidgetControllers)
+            {
+                alertsPanel.Children.Add(alert.AlertWidget);
+            }
+        }
 
         private async void GetAllAlerts()
         {
-            WebRequest request = WebRequest.Create("http://192.168.3.62:1234/api/alerts/all/" + ParametersKeeper.SystemName);
+            WebRequest request = WebRequest.Create(ParametersKeeper.GetAllAlerts + ParametersKeeper.SystemName);
             request.Method = "GET";
 
             WebResponse response = await request.GetResponseAsync();
@@ -80,12 +86,7 @@ namespace DD.ClientWPF
                 }
             }
 
-            var allAlertsResponse = new List<Alert>();//JsonConvert.DeserializeObject<List<Alert>>(responseText);
-
-            //foreach (Alert alert in allAlertsResponse)
-            //{
-            //    Debug.WriteLine(alert.Header);
-            //}
+            var allAlertsResponse = JsonConvert.DeserializeObject<List<Alert>>(responseText);
 
             foreach (Alert alertGot in allAlertsResponse)
             {
@@ -94,19 +95,24 @@ namespace DD.ClientWPF
                 {
                     if (alertGot.ID == alertWidget.AlertData.ID)
                     {
+                        alertWidget.AlertData = alertGot;
+                        
                         has = true;
                         break;
                     }
                 }
 
                 if (!has)
+                {
                     AlertWidgetControllers.Add(new AlertWidgetController(alertGot));
+                    //this.Focus();
+                }
             }
         }
 
         private void SortAlertWidgetControllers()
         {
-            AlertWidgetControllers.Sort((a, b) => a.AlertData.Date.CompareTo(b.AlertData.Date));
+            AlertWidgetControllers.Sort((a, b) => b.AlertData.Date.CompareTo(a.AlertData.Date));
 
             var closedAlerts = new List<AlertWidgetController>();
 

@@ -14,7 +14,7 @@ namespace DD.ClientWPF
 
         public static string UserName = "User User";
 
-        public const string GetAllAlerts = "";
-        public const string GetAlert = "";
+        public const string GetAllAlerts = "http://192.168.3.62:1234/api/alerts/all/";
+        public const string PutAlert = "http://192.168.3.62:1234/api/alerts/";
     }
 }

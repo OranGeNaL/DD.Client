@@ -16,6 +16,14 @@
         </Style.Resources>
     </Style>
 
+    <Style TargetType="TextBox" x:Key="RoundedTextBox">
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="5" />
+            </Style>
+        </Style.Resources>
+    </Style>
+
     <Style TargetType="Grid" x:Key="RoundedGrid">
         <Style.Resources>
             <Style TargetType="Border">

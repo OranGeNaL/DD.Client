@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
@@ -17,7 +20,9 @@ namespace DD.ClientWPF
 
         public AlertWidgetController() { }
 
-        private bool expended = false;
+        private bool expanded = false;
+
+        public bool Expanded { get { return expanded; } set { expanded = value; } }
 
         public AlertWidgetController(Alert alert)
         {
@@ -49,37 +54,76 @@ namespace DD.ClientWPF
                     AlertWidget.TakeButton.Visibility = System.Windows.Visibility.Collapsed;
                     AlertWidget.AlertHeader.Width = 370;
                     AlertWidget.Container.Background = (Brush)AlertWidget.TryFindResource("ClosedAlertBackColor");
-                    AlertWidget.Worker.Content = "Закрыт: " + AlertData.Worker;
+                    AlertWidget.Worker.Content = "Закрыт: " + AlertData.CommentToClose;
                     break;
             }
 
             AlertWidget.AlertHeader.Content = AlertData.Header;
-            AlertWidget.AlertDescriptionContent.Text = AlertData.Description;
+            AlertWidget.AlertDescriptionContent.Text = "Дата создания: " + AlertData.Date.ToString("G") + "\n\n" + AlertData.Description;
         }
 
         private void ExpandCollapseButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if(expended)
+            if (this.expanded)
             {
-                expended = false;
+                this.expanded = false;
                 AlertWidget.AlertDescriptionContent.MaxHeight = 100;
 
                 AlertWidget.ExpandCollapseButton.Content = AlertWidget.TryFindResource("ExpandDescription");
             }
             else
             {
-                expended = true;
+                this.expanded = true;
                 AlertWidget.AlertDescriptionContent.MaxHeight = 600;
                 AlertWidget.ExpandCollapseButton.Content = AlertWidget.TryFindResource("CollapseDescription");
             }
         }
 
-        public async void UpdateAlertData()
+        public AlertWidgetController SetExpandCollapseWidget()
         {
-            throw new NotImplementedException();
+            //Debug.WriteLine(AlertData.Header + expanded.ToString());
+
+            if (!expanded)
+            {
+                AlertWidget.AlertDescriptionContent.MaxHeight = 100;
+
+                AlertWidget.ExpandCollapseButton.Content = AlertWidget.TryFindResource("ExpandDescription");
+            }
+            else
+            {
+                AlertWidget.AlertDescriptionContent.MaxHeight = 600;
+                AlertWidget.ExpandCollapseButton.Content = AlertWidget.TryFindResource("CollapseDescription");
+            }
+
+            return this;
         }
 
         private void TakeButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (AlertData.Status < 2)
+                TakeAlert();
+            else
+                CloseAlert();
+        }
+
+        private async void TakeAlert()
+        {
+            WebRequest request = WebRequest.Create(ParametersKeeper.PutAlert + AlertData.ID);
+            request.Method = "PUT";
+            request.ContentType = "application/json";
+
+            AlertData.Status = 1;
+            AlertData.Worker = ParametersKeeper.UserName;
+
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                streamWriter.Write(JsonConvert.SerializeObject(AlertData));
+            }
+
+            WebResponse response = await request.GetResponseAsync();
+        }
+
+        private async void CloseAlert()
         {
             throw new NotImplementedException();
         }

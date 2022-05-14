@@ -22,6 +22,8 @@ namespace DD.ClientWPF
     {
         AlertsWindow alertsWindow = null;
 
+
+
         bool closing = false;
 
         public MainWindow()
