@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+
 
 namespace DD.ClientWPF
 {
@@ -36,12 +40,70 @@ namespace DD.ClientWPF
 
         public static void SaveParameters()
         {
-            throw new NotImplementedException();
+
+            XmlDocument xDoc = new XmlDocument();
+
+            xDoc.AppendChild(xDoc.CreateElement("root"));
+
+            var xRoot = xDoc.DocumentElement;
+
+            var userNameNode = xDoc.CreateElement("UserName");
+            userNameNode.InnerText = ParametersKeeper.UserName;
+            xRoot.AppendChild(userNameNode);
+
+            var systemIndexNode = xDoc.CreateElement("SystemIndex");
+            systemIndexNode.InnerText = SystemIndex.ToString();
+            xRoot.AppendChild(systemIndexNode);
+
+            var mainTime = xDoc.CreateElement("MainTime");
+            mainTime.InnerText = MainTimeArea.ToString();
+            xRoot.AppendChild(mainTime);
+
+            var leftTime = xDoc.CreateElement("LeftTime");
+            leftTime.InnerText = LeftTimeArea.ToString();
+            xRoot.AppendChild(leftTime);
+
+            var rightTime = xDoc.CreateElement("RightTime");
+            rightTime.InnerText = RightTimeArea.ToString();
+            xRoot.AppendChild(rightTime);
+
+            xDoc.Save("settings.xml");
         }
 
         public static void ReadParameters()
         {
-            throw new NotImplementedException();
+            FileInfo fileInfo = new FileInfo("settings.xml");
+
+            if (fileInfo.Exists)
+            {
+                XmlDocument xDoc = new XmlDocument();
+                xDoc.Load("settings.xml");
+                XmlElement xRoot = xDoc.DocumentElement;
+                if (xRoot != null)
+                {
+                    foreach (XmlElement xnode in xRoot)
+                    {
+                        if(xnode.Name == "UserName")
+                            UserName = xnode.InnerText;
+
+                        else if (xnode.Name == "SystemIndex")
+                            SystemIndex = int.Parse(xnode.InnerText);
+
+                        else if (xnode.Name == "MainTime")
+                            MainTimeArea = int.Parse(xnode.InnerText);
+
+                        else if (xnode.Name == "LeftTime")
+                            LeftTimeArea = int.Parse(xnode.InnerText);
+
+                        else if (xnode.Name == "RightTime")
+                            RightTimeArea = int.Parse(xnode.InnerText);
+                    }
+                }
+            }
+            else
+            {
+                SaveParameters();
+            }
         }
     }
 }

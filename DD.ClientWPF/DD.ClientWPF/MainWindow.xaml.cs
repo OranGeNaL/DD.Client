@@ -38,6 +38,7 @@ namespace DD.ClientWPF
             clockTimer.Interval = new TimeSpan(0, 0, 0, 5);
             clockTimer.Tick += ClockTimer_Tick;
 
+            ParametersKeeper.ReadParameters();
             ApplyParameters();
 
             alertsButton.Click += AlertsButton_Click;
@@ -76,6 +77,7 @@ namespace DD.ClientWPF
             ParametersKeeper.LeftTimeArea = settingsWindow.LeftTimeAreaCombo.SelectedIndex;
             ParametersKeeper.RightTimeArea = settingsWindow.RightTimeAreaCombo.SelectedIndex;
 
+            ParametersKeeper.SaveParameters();
             ApplyParameters();
         }
 

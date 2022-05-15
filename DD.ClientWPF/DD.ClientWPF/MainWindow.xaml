@@ -34,7 +34,7 @@
                 </StackPanel>
             </Label>
 
-            <Label Style="{StaticResource RoundedLabel}" Width="250" Foreground="#00000000" Background="#FFFFDEDE" Margin="0,10,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Label Style="{StaticResource RoundedLabel}" Width="250" Foreground="#00000000" Background="#FFFFDEDE" Margin="0,10,0,10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal"></StackPanel>
                     <StackPanel>
