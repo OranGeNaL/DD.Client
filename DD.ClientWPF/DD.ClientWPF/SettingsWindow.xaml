@@ -5,16 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DD.ClientWPF"
         mc:Ignorable="d"
-        Title="Настройки" Height="400" Width="300" ResizeMode="NoResize">
+        Title="Настройки" Width="300" ResizeMode="NoResize" SizeToContent="Height">
     <Grid Background="#FFFFB7B7">
-        <StackPanel>
-            <Label Style="{StaticResource RoundedLabel}" Width="260" Background="#FFFFDEDE" Foreground="#00000000">
+        <StackPanel Margin="0,5,0,0">
+            <Label Style="{StaticResource RoundedLabel}" Width="260" Background="#FFFFDEDE" Foreground="#00000000" Margin="0,0,0,5">
                 <StackPanel>
-                    <TextBlock FontSize="8" FontFamily="Corbel" VerticalAlignment="Center"
+                    <TextBlock FontSize="12" FontFamily="Corbel" VerticalAlignment="Center"
                        HorizontalAlignment="Left" Foreground="#FF4F4F4F">Фамилия Имя</TextBlock>
-                    <TextBox Style="{StaticResource RoundedTextBox}" Width="250"></TextBox>
+                    <TextBox x:Name="UserNameTextBox" Style="{StaticResource RoundedTextBox}" FontSize="14" FontFamily="Corbel" Width="250" Background="#FFFFF4F4" BorderBrush="#00ABADB3"></TextBox>
                 </StackPanel>
             </Label>
+
+            <Label Style="{StaticResource RoundedLabel}" Width="260" Background="#FFFFDEDE" Foreground="#00000000" Margin="0,0,0,5">
+                <StackPanel>
+                    <TextBlock FontSize="12" FontFamily="Corbel" VerticalAlignment="Center"
+                       HorizontalAlignment="Left" Foreground="#FF4F4F4F">Система</TextBlock>
+                    <ComboBox ItemsSource="{Binding Source={x:Static local:ParametersKeeper.SystemNames}}" Foreground="#FF4F4F4F" x:Name="SystemIDCombo" Style="{StaticResource RoundedComboBox}" FontSize="14" FontFamily="Corbel" Width="250" Background="#FFFFF4F4" BorderBrush="#00ACACAC">
+                        <!--<ComboBoxItem >
+                            <TextBlock>TEMP</TextBlock>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock>TEMP1</TextBlock>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock>TEMP2</TextBlock>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock>TEMP3</TextBlock>
+                        </ComboBoxItem>-->
+                    </ComboBox>
+                </StackPanel>
+            </Label>
+
+            <Label Style="{StaticResource RoundedLabel}" Width="260" Background="#FFFFDEDE" Foreground="#00000000" Margin="0,0,0,5">
+                <StackPanel>
+                    <TextBlock FontSize="12" FontFamily="Corbel" VerticalAlignment="Center"
+                       HorizontalAlignment="Left" Foreground="#FF4F4F4F">Главные часы</TextBlock>
+                    <ComboBox ItemsSource="{Binding Source={x:Static local:ParametersKeeper.TimeAreas}}" Foreground="#FF4F4F4F" x:Name="MainTimeAreaCombo" Style="{StaticResource RoundedComboBox}" FontSize="14" FontFamily="Corbel" Width="250" Background="#FFFFF4F4" BorderBrush="#00ACACAC"></ComboBox>
+                </StackPanel>
+            </Label>
+
+            <Label Style="{StaticResource RoundedLabel}" Width="260" Background="#FFFFDEDE" Foreground="#00000000" Margin="0,0,0,5">
+                <StackPanel>
+                    <TextBlock FontSize="12" FontFamily="Corbel" VerticalAlignment="Center"
+                       HorizontalAlignment="Left" Foreground="#FF4F4F4F">Левые часы</TextBlock>
+                    <ComboBox ItemsSource="{Binding Source={x:Static local:ParametersKeeper.TimeAreas}}" Foreground="#FF4F4F4F" x:Name="LeftTimeAreaCombo" Style="{StaticResource RoundedComboBox}" FontSize="14" FontFamily="Corbel" Width="250" Background="#FFFFF4F4" BorderBrush="#00ACACAC"></ComboBox>
+                </StackPanel>
+            </Label>
+
+            <Label Style="{StaticResource RoundedLabel}" Width="260" Background="#FFFFDEDE" Foreground="#00000000" Margin="0,0,0,5">
+                <StackPanel>
+                    <TextBlock FontSize="12" FontFamily="Corbel" VerticalAlignment="Center"
+                       HorizontalAlignment="Left" Foreground="#FF4F4F4F">Правые часы</TextBlock>
+                    <ComboBox ItemsSource="{Binding Source={x:Static local:ParametersKeeper.TimeAreas}}" Foreground="#FF4F4F4F" x:Name="RightTimeAreaCombo" Style="{StaticResource RoundedComboBox}" FontSize="14" FontFamily="Corbel" Width="250" Background="#FFFFF4F4" BorderBrush="#00ACACAC"></ComboBox>
+                </StackPanel>
+            </Label>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,11">
+                <Button x:Name="OkButton" Style="{StaticResource RoundedButton}" Background="#FFFFDEDE" BorderBrush="#00707070" Foreground="#FF4F4F4F" Height="25" Width="60" Margin="0,0,5,0">ОК</Button>
+                <Button x:Name="CancelButton" Style="{StaticResource RoundedButton}" Background="#FFFFDEDE" BorderBrush="#00707070" Foreground="#FF4F4F4F" Height="25" Width="60">Отмена</Button>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

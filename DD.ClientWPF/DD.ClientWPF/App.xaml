@@ -22,8 +22,16 @@
             <Image x:Shared="False" x:Key="TakeAlert" Source="/Images/take-alert.png" Height="28" Width="28"/>
             <Image x:Shared="False" x:Key="CloseAlert" Source="/Images/close-alert.png" Height="28" Width="28"/>
 
+            <Image x:Shared="False" x:Key="UserOnSmene" Source="/Images/user-pic.png" Height="12" Width="12"/>
+
             <SolidColorBrush x:Shared="False" x:Key="ActiveAlertBackColor" Color="#FFFFDEDE"></SolidColorBrush>
             <SolidColorBrush x:Shared="False" x:Key="ClosedAlertBackColor" Color="#FFEEEAEA"></SolidColorBrush>
+
+            <SolidColorBrush x:Shared="False" x:Key="NewAlertWorkerBackground" Color="#FFFF5252"></SolidColorBrush>
+            <SolidColorBrush x:Shared="False" x:Key="NewAlertWorkerForeground" Color="#FFFFFFFF"></SolidColorBrush>
+
+            <SolidColorBrush x:Shared="False" x:Key="TakenAlertWorkerBackground" Color="#FFFFF4F4"></SolidColorBrush>
+            <SolidColorBrush x:Shared="False" x:Key="TakenAlertWorkerForeground" Color="#FF4F4F4F"></SolidColorBrush>
         </ResourceDictionary>
         
         

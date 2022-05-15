@@ -24,6 +24,8 @@ namespace DD.ClientWPF
 
         public bool Expanded { get { return expanded; } set { expanded = value; } }
 
+        private CloseCommentWindow CommentWindow { get; set; }
+
         public AlertWidgetController(Alert alert)
         {
             AlertData = alert;
@@ -37,11 +39,16 @@ namespace DD.ClientWPF
 
         public void UpdateWidgetContent()
         {
+            AlertWidget.Worker.Background = (SolidColorBrush)AlertWidget.TryFindResource("TakenAlertWorkerBackground");
+            AlertWidget.Worker.Foreground = (SolidColorBrush)AlertWidget.TryFindResource("TakenAlertWorkerForeground");
+       
             switch (AlertData.Status)
             {
                 case 0:
                     AlertWidget.TakeButton.Content = AlertWidget.TryFindResource("TakeAlert");
                     AlertWidget.Worker.Content = "Не в работе";
+                    AlertWidget.Worker.Background = (SolidColorBrush)AlertWidget.TryFindResource("NewAlertWorkerBackground");
+                    AlertWidget.Worker.Foreground = (SolidColorBrush)AlertWidget.TryFindResource("NewAlertWorkerForeground");
                     break;
                 case 1:
                     if (AlertData.Worker != ParametersKeeper.UserName)
@@ -53,7 +60,7 @@ namespace DD.ClientWPF
                 case 2:
                     AlertWidget.TakeButton.Visibility = System.Windows.Visibility.Collapsed;
                     AlertWidget.AlertHeader.Width = 370;
-                    AlertWidget.Container.Background = (Brush)AlertWidget.TryFindResource("ClosedAlertBackColor");
+                    AlertWidget.Container.Background = (SolidColorBrush)AlertWidget.TryFindResource("ClosedAlertBackColor");
                     AlertWidget.Worker.Content = "Закрыт: " + AlertData.CommentToClose;
                     break;
             }
@@ -100,10 +107,15 @@ namespace DD.ClientWPF
 
         private void TakeButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (AlertData.Status < 2)
+            if (AlertData.Status <= 1 && AlertData.Worker != ParametersKeeper.UserName)
                 TakeAlert();
-            else
-                CloseAlert();
+            else if (AlertData.Status == 1 && AlertData.Worker == ParametersKeeper.UserName)
+            {
+                CommentWindow = new CloseCommentWindow();
+                CommentWindow.OkButton.Click += OkComment_Click;
+
+                CommentWindow.Show();
+            }    
         }
 
         private async void TakeAlert()
@@ -125,7 +137,24 @@ namespace DD.ClientWPF
 
         private async void CloseAlert()
         {
-            throw new NotImplementedException();
+            WebRequest request = WebRequest.Create(ParametersKeeper.PutAlert + AlertData.ID);
+            request.Method = "PUT";
+            request.ContentType = "application/json";
+
+            AlertData.Status = 2;
+
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                streamWriter.Write(JsonConvert.SerializeObject(AlertData));
+            }
+
+            WebResponse response = await request.GetResponseAsync();
+        }
+
+        private void OkComment_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            AlertData.CommentToClose = CommentWindow.CloseComment.Text;
+            CloseAlert();
         }
     }
 }

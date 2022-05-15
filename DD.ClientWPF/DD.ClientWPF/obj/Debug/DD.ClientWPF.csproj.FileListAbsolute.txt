@@ -25,3 +25,5 @@ D:\DD.Client\DD.ClientWPF\DD.ClientWPF\bin\Debug\Newtonsoft.Json.xml
 D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\DD.ClientWPF.csproj.CopyComplete
 D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\SettingsWindow.g.cs
 D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\SettingsWindow.baml
+D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\CloseCommentWindow.g.cs
+D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\CloseCommentWindow.baml

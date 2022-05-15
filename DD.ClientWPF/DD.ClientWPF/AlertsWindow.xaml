@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DD.ClientWPF"
         mc:Ignorable="d"
-        Title="Алерты" Height="600" Width="420" ResizeMode="CanMinimize" Background="#FFFFB7B7">
+        Title="Алерты" Height="600" Width="440" ResizeMode="CanMinimize" Background="#FFFFB7B7">
 
     <Grid>
         <ScrollViewer>
-            <StackPanel x:Name="alertsPanel" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True">
+            <StackPanel x:Name="alertsPanel" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True" Margin="0,10,0,0">
 
             </StackPanel>
         </ScrollViewer>

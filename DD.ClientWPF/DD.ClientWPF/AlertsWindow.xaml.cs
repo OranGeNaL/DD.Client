@@ -108,6 +108,28 @@ namespace DD.ClientWPF
                     //this.Focus();
                 }
             }
+
+            var widgetsToRemove = new List<AlertWidgetController>();
+
+            foreach (var alertWidget in AlertWidgetControllers)
+            {
+                var has = false;
+
+                foreach (var alertGot in allAlertsResponse)
+                {
+                    if (alertGot.ID == alertWidget.AlertData.ID)
+                    {
+                        has = true;
+                        break;
+                    }
+                }
+
+                if (!has)
+                    widgetsToRemove.Add(alertWidget);
+            }
+
+            foreach (var alertWidget in widgetsToRemove)
+                AlertWidgetControllers.Remove(alertWidget);
         }
 
         private void SortAlertWidgetControllers()

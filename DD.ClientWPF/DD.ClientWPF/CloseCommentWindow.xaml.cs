@@ -14,22 +14,11 @@ using System.Windows.Shapes;
 
 namespace DD.ClientWPF
 {
-    /// <summary>
-    /// Логика взаимодействия для SettingsWindow.xaml
-    /// </summary>
-    public partial class SettingsWindow : Window
+    public partial class CloseCommentWindow : Window
     {
-        public SettingsWindow()
+        public CloseCommentWindow()
         {
             InitializeComponent();
-
-            UserNameTextBox.Text = ParametersKeeper.UserName;
-
-            SystemIDCombo.SelectedIndex = ParametersKeeper.SystemIndex;
-
-            MainTimeAreaCombo.SelectedIndex = ParametersKeeper.MainTimeArea;
-            LeftTimeAreaCombo.SelectedIndex = ParametersKeeper.LeftTimeArea;
-            RightTimeAreaCombo.SelectedIndex = ParametersKeeper.RightTimeArea;
 
             OkButton.Click += OkButton_Click;
             CancelButton.Click += OkButton_Click;
