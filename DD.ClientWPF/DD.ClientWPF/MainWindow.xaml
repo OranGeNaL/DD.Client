@@ -1,0 +1,124 @@
+﻿<Window x:Class="DD.ClientWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DD.ClientWPF"
+        mc:Ignorable="d"
+        Title="Дашборд Дежурного" Width="300" WindowStyle="SingleBorderWindow" ResizeMode="CanMinimize" Background="#FFFFB7B7" SizeToContent="Height">
+
+
+    <Grid>
+        <StackPanel Margin="0,0,0,10">
+            <Label Style="{StaticResource RoundedLabel}" Width="250" Foreground="#00000000" Background="#FFFFDEDE" Margin="0,10,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <StackPanel>
+                    <Label Style="{StaticResource RoundedLabel}" Width="240" Foreground="#FF4F4F4F" Background="#FFFFF4F4" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontFamily="Nirmala UI" Margin="0,0,0,5">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock x:Name="MainClockTime" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" FontWeight="Normal">12:46</TextBlock>
+                            <TextBlock x:Name="MainClockArea" HorizontalAlignment="Center" VerticalAlignment="Center">Хабаровск</TextBlock>
+                        </StackPanel>
+                    </Label>
+
+                    <Label Style="{StaticResource RoundedLabel}" Width="240" Foreground="#FF4F4F4F" Background="#FFFFF4F4" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontFamily="Nirmala UI">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Margin="0,0,30,0">
+                                <TextBlock x:Name="LeftClockTime" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24">05:46</TextBlock>
+                                <TextBlock x:Name="LeftClockArea" HorizontalAlignment="Center" VerticalAlignment="Center">Москва</TextBlock>
+                            </StackPanel>
+                            <StackPanel Margin="30,0,0,0">
+                                <TextBlock x:Name="RightClockTime" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24">09:46</TextBlock>
+                                <TextBlock x:Name="RightClockArea" HorizontalAlignment="Center" VerticalAlignment="Center">Красноярск</TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </Label>
+                </StackPanel>
+            </Label>
+
+            <Label Style="{StaticResource RoundedLabel}" Width="250" Foreground="#00000000" Background="#FFFFDEDE" Margin="0,10,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                    <StackPanel>
+                        <ListBox x:Name="PeopleOnSmeneListBox" BorderBrush="#00ABADB3" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                            <ListBoxItem>
+                                <Label Width="220" Style="{StaticResource RoundedLabel}" Background="#FFFFF4F4">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label>
+                                            <DynamicResource ResourceKey="UserOnSmene"></DynamicResource>
+                                        </Label>
+                                        <TextBlock Foreground="#FF4F4F4F" VerticalAlignment="Center" FontFamily="Nirmala UI">Пусто</TextBlock>
+                                    </StackPanel>
+                                </Label>
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <Label Width="220" Style="{StaticResource RoundedLabel}" Background="#FFFFF4F4">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label>
+                                            <DynamicResource ResourceKey="UserOnSmene"></DynamicResource>
+                                        </Label>
+                                        <TextBlock Foreground="#FF4F4F4F" VerticalAlignment="Center" FontFamily="Nirmala UI">Пусто</TextBlock>
+                                    </StackPanel>
+                                </Label>
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <Label Width="220" Style="{StaticResource RoundedLabel}" Background="#FFFFF4F4">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label>
+                                            <DynamicResource ResourceKey="UserOnSmene"></DynamicResource>
+                                        </Label>
+                                        <TextBlock Foreground="#FF4F4F4F" VerticalAlignment="Center" FontFamily="Nirmala UI">Пусто</TextBlock>
+                                    </StackPanel>
+                                </Label>
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <Label Width="220" Style="{StaticResource RoundedLabel}" Background="#FFFFF4F4">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label>
+                                            <DynamicResource ResourceKey="UserOnSmene"></DynamicResource>
+                                        </Label>
+                                        <TextBlock Foreground="#FF4F4F4F" VerticalAlignment="Center" FontFamily="Nirmala UI">Пусто</TextBlock>
+                                    </StackPanel>
+                                </Label>
+                            </ListBoxItem>
+                        </ListBox>
+                    </StackPanel>
+                </StackPanel>
+            </Label>
+            
+            <Grid Width="270">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="alertsButton" Style="{StaticResource RoundedButton}" Grid.Column="0" Grid.Row="0" Background="#FFFFDEDE" Foreground="#00000000" Width="115" Height="115" BorderBrush="#00707070" Padding="1,1,1,1" Margin="0,10,0,10">
+                    <DynamicResource ResourceKey="AlertsWindowButton"/>
+                </Button>
+                <Button x:Name="tasksButton" Style="{StaticResource RoundedButton}" Grid.Column="1" Grid.Row="0" Background="#FFFFDEDE" BorderBrush="#00707070" Foreground="#00000000" Width="115" Height="115" Margin="0,10,0,10">
+
+                </Button>
+                <Button x:Name="chatButton" Style="{StaticResource RoundedButton}" Grid.Column="0" Grid.Row="1" Background="#FFFFDEDE" BorderBrush="#00707070" Foreground="#00000000" Width="115" Height="115" Margin="0,10,0,10">
+
+                </Button>
+                <Button x:Name="emptyButton" Style="{StaticResource RoundedButton}" Grid.Column="1" Grid.Row="1" Background="#FFFFDEDE" BorderBrush="#00707070" Foreground="#00000000" Width="115" Height="115" Margin="0,10,0,10">
+
+                </Button>
+            </Grid>
+
+            <Label Style="{StaticResource RoundedLabel}" Width="250" Height="50" Foreground="#00000000" Background="#FFFFDEDE" Margin="0,10,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Label Style="{StaticResource RoundedLabel}" Height="38" Width="194" Background="#FFFFF4F4" Foreground="#FF4F4F4F" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="1,0,0,0">
+                        <TextBlock x:Name="UserNameTextBlock" Text="{Binding Source={x:Static local:ParametersKeeper.UserName}}"></TextBlock>
+                    </Label>
+                    <Button x:Name="settingsButton" Style="{StaticResource RoundedButton}" Background="#FFFFF4F4" BorderBrush="#00707070" Foreground="#00000000" Width="38" Height="40" Margin="6,0,0,0">
+                        <DynamicResource ResourceKey="Settings"></DynamicResource>
+                    </Button>
+                </StackPanel>
+            </Label>
+            
+        </StackPanel>
+    </Grid>
+</Window>

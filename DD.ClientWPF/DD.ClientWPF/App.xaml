@@ -1,0 +1,39 @@
+﻿<Application x:Class="DD.ClientWPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DD.ClientWPF"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/ButtonStyle.xaml">
+
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+
+            <TextBlock x:Shared="False" x:Key="UserName" Text="Астахов Кирилл" FontSize="14" FontFamily="Corbel" VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+
+            <Image x:Shared="False" x:Key="AlertsWindowButton" Source="/Images/alerts-pic.png" Height="70" Width="70"/>
+
+            <Image x:Shared="False" x:Key="Settings" Source="/Images/settings.png" Height="28" Width="28"/>
+            <Image x:Shared="False" x:Key="CollapseDescription" Source="/Images/button-description-collapse.png" Height="28" Width="28"/>
+            <Image x:Shared="False" x:Key="ExpandDescription" Source="/Images/button-description-expand.png" Height="28" Width="28"/>
+            <Image x:Shared="False" x:Key="TakeAlert" Source="/Images/take-alert.png" Height="28" Width="28"/>
+            <Image x:Shared="False" x:Key="CloseAlert" Source="/Images/close-alert.png" Height="28" Width="28"/>
+
+            <Image x:Shared="False" x:Key="UserOnSmene" Source="/Images/user-pic.png" Height="12" Width="12"/>
+
+            <SolidColorBrush x:Shared="False" x:Key="ActiveAlertBackColor" Color="#FFFFDEDE"></SolidColorBrush>
+            <SolidColorBrush x:Shared="False" x:Key="ClosedAlertBackColor" Color="#FFEEEAEA"></SolidColorBrush>
+
+            <SolidColorBrush x:Shared="False" x:Key="NewAlertWorkerBackground" Color="#FFFF5252"></SolidColorBrush>
+            <SolidColorBrush x:Shared="False" x:Key="NewAlertWorkerForeground" Color="#FFFFFFFF"></SolidColorBrush>
+
+            <SolidColorBrush x:Shared="False" x:Key="TakenAlertWorkerBackground" Color="#FFFFF4F4"></SolidColorBrush>
+            <SolidColorBrush x:Shared="False" x:Key="TakenAlertWorkerForeground" Color="#FF4F4F4F"></SolidColorBrush>
+        </ResourceDictionary>
+        
+        
+    </Application.Resources>
+</Application>
