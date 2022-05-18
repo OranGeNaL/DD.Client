@@ -36,6 +36,8 @@ namespace DD.ClientWPF
 
         public const string GetAllAlerts = "http://192.168.3.62:1234/api/alerts/all/";
         public const string PutAlert = "http://192.168.3.62:1234/api/alerts/";
+        public const string GetShiftComposition = "http://192.168.3.62:1234/api/people/all/";
+        public const string TakeShiftPlace = "http://192.168.3.62:1234/api/people/";
 
 
         public static void SaveParameters()

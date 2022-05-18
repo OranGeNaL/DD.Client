@@ -1,7 +1,11 @@
-﻿using System;
+﻿using DD.ClientWPF.HttpObjects;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,9 +21,6 @@ using System.Windows.Threading;
 
 namespace DD.ClientWPF
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         AlertsWindow alertsWindow = null;
@@ -51,14 +52,69 @@ namespace DD.ClientWPF
 
         private void PeopleOnSmeneListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Debug.WriteLine(PeopleOnSmeneListBox.SelectedIndex.ToString());
-
+            //Debug.WriteLine(PeopleOnSmeneListBox.SelectedIndex.ToString()); //Встать на смену
+            TakePlaceOnShift(PeopleOnSmeneListBox.SelectedIndex);
+            UpdatePeopleOnShift();
             PeopleOnSmeneListBox.SelectedIndex = -1;
         }
 
         private void ClockTimer_Tick(object sender, EventArgs e)
         {
             ApplyParameters();
+            UpdatePeopleOnShift();
+        }
+
+        private async void UpdatePeopleOnShift()
+        {
+            WebRequest request = WebRequest.Create(ParametersKeeper.GetShiftComposition + ParametersKeeper.SystemName);
+            request.Method = "GET";
+
+            WebResponse response = await request.GetResponseAsync();
+
+            string responseText = "";
+
+            using (Stream stream = response.GetResponseStream())
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    responseText = reader.ReadToEnd();
+                }
+            }
+
+            var shiftTextBlocks = new TextBlock[] { firstShiftPerson, secondShiftPerson, thirdShiftPerson, fourthShiftPerson };
+
+            try
+            {
+                var composition = JsonConvert.DeserializeObject<List<CompositionOfTheShift>>(responseText);
+
+                
+
+                for (int i = 0; i < 4; i++)
+                {
+                    shiftTextBlocks[i].Text = composition[0].People[i];
+                }
+            }
+            catch (Exception ex)
+            {
+                foreach (var block in shiftTextBlocks)
+                    block.Text = "НЕВОЗМОЖНО ПОЛУЧИТЬ";
+                Debug.WriteLine(ex.Message);
+            }
+        }
+
+        private async void TakePlaceOnShift(int placeInd)
+        {
+            WebRequest request = WebRequest.Create(ParametersKeeper.TakeShiftPlace + ParametersKeeper.SystemName + "?slotInd=" + placeInd.ToString());
+            request.Method = "PUT";
+            request.ContentType = "application/json";
+
+
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                streamWriter.Write(ParametersKeeper.UserName);
+            }
+
+            WebResponse response = await request.GetResponseAsync();
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
@@ -93,6 +149,8 @@ namespace DD.ClientWPF
             MainClockTime.Text = dateTime.AddHours(ParametersKeeper.MainTimeArea + 2).ToString("HH:mm");
             LeftClockTime.Text = dateTime.AddHours(ParametersKeeper.LeftTimeArea + 2).ToString("HH:mm");
             RightClockTime.Text = dateTime.AddHours(ParametersKeeper.RightTimeArea + 2).ToString("HH:mm");
+
+            SystemName.Text = ParametersKeeper.SystemName;
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)

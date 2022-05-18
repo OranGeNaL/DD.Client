@@ -23,6 +23,7 @@
             <Image x:Shared="False" x:Key="CloseAlert" Source="/Images/close-alert.png" Height="28" Width="28"/>
 
             <Image x:Shared="False" x:Key="UserOnSmene" Source="/Images/user-pic.png" Height="12" Width="12"/>
+            <Image x:Shared="False" x:Key="SystemIcon" Source="/Images/shift-pic.png" Height="12" Width="12"></Image>
 
             <SolidColorBrush x:Shared="False" x:Key="ActiveAlertBackColor" Color="#FFFFDEDE"></SolidColorBrush>
             <SolidColorBrush x:Shared="False" x:Key="ClosedAlertBackColor" Color="#FFEEEAEA"></SolidColorBrush>

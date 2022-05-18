@@ -34,6 +34,17 @@
                 </StackPanel>
             </Label>
 
+            <Label Style="{StaticResource RoundedLabel}" Width="250" Foreground="#00000000" Background="#FFFFDEDE" Margin="0,10,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <Label Width="220" Style="{StaticResource RoundedLabel}" Background="#FFFFF4F4">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Label>
+                            <DynamicResource ResourceKey="SystemIcon"></DynamicResource>
+                        </Label>
+                        <TextBlock x:Name="SystemName" Foreground="#FF4F4F4F" VerticalAlignment="Center" FontFamily="Nirmala UI">Пусто</TextBlock>
+                    </StackPanel>
+                </Label>
+            </Label>
+
             <Label Style="{StaticResource RoundedLabel}" Width="250" Foreground="#00000000" Background="#FFFFDEDE" Margin="0,10,0,10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal"></StackPanel>
@@ -45,7 +56,7 @@
                                         <Label>
                                             <DynamicResource ResourceKey="UserOnSmene"></DynamicResource>
                                         </Label>
-                                        <TextBlock Foreground="#FF4F4F4F" VerticalAlignment="Center" FontFamily="Nirmala UI">Пусто</TextBlock>
+                                        <TextBlock x:Name="firstShiftPerson" Foreground="#FF4F4F4F" VerticalAlignment="Center" FontFamily="Nirmala UI">Пусто</TextBlock>
                                     </StackPanel>
                                 </Label>
                             </ListBoxItem>
@@ -55,7 +66,7 @@
                                         <Label>
                                             <DynamicResource ResourceKey="UserOnSmene"></DynamicResource>
                                         </Label>
-                                        <TextBlock Foreground="#FF4F4F4F" VerticalAlignment="Center" FontFamily="Nirmala UI">Пусто</TextBlock>
+                                        <TextBlock x:Name="secondShiftPerson" Foreground="#FF4F4F4F" VerticalAlignment="Center" FontFamily="Nirmala UI">Пусто</TextBlock>
                                     </StackPanel>
                                 </Label>
                             </ListBoxItem>
@@ -65,7 +76,7 @@
                                         <Label>
                                             <DynamicResource ResourceKey="UserOnSmene"></DynamicResource>
                                         </Label>
-                                        <TextBlock Foreground="#FF4F4F4F" VerticalAlignment="Center" FontFamily="Nirmala UI">Пусто</TextBlock>
+                                        <TextBlock x:Name="thirdShiftPerson" Foreground="#FF4F4F4F" VerticalAlignment="Center" FontFamily="Nirmala UI">Пусто</TextBlock>
                                     </StackPanel>
                                 </Label>
                             </ListBoxItem>
@@ -75,7 +86,7 @@
                                         <Label>
                                             <DynamicResource ResourceKey="UserOnSmene"></DynamicResource>
                                         </Label>
-                                        <TextBlock Foreground="#FF4F4F4F" VerticalAlignment="Center" FontFamily="Nirmala UI">Пусто</TextBlock>
+                                        <TextBlock x:Name="fourthShiftPerson" Foreground="#FF4F4F4F" VerticalAlignment="Center" FontFamily="Nirmala UI">Пусто</TextBlock>
                                     </StackPanel>
                                 </Label>
                             </ListBoxItem>
@@ -111,7 +122,7 @@
             <Label Style="{StaticResource RoundedLabel}" Width="250" Height="50" Foreground="#00000000" Background="#FFFFDEDE" Margin="0,10,0,0">
                 <StackPanel Orientation="Horizontal">
                     <Label Style="{StaticResource RoundedLabel}" Height="38" Width="194" Background="#FFFFF4F4" Foreground="#FF4F4F4F" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="1,0,0,0">
-                        <TextBlock x:Name="UserNameTextBlock" Text="{Binding Source={x:Static local:ParametersKeeper.UserName}}"></TextBlock>
+                        <TextBlock x:Name="UserNameTextBlock" Text="Имя Фамилия"></TextBlock>
                     </Label>
                     <Button x:Name="settingsButton" Style="{StaticResource RoundedButton}" Background="#FFFFF4F4" BorderBrush="#00707070" Foreground="#00000000" Width="38" Height="40" Margin="6,0,0,0">
                         <DynamicResource ResourceKey="Settings"></DynamicResource>

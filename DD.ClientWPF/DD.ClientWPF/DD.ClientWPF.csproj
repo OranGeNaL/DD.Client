@@ -61,6 +61,7 @@
     <Compile Include="CloseCommentWindow.xaml.cs">
       <DependentUpon>CloseCommentWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HttpObjects\CompositionOfTheShift.cs" />
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
@@ -149,6 +150,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\user-pic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\shift-pic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
