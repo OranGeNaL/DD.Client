@@ -33,11 +33,13 @@ namespace DD.ClientWPF
         public static int LeftTimeArea = 1;
         public static int RightTimeArea = 5;
 
+        public const string ApiHost = "http://192.168.3.62:1234";
+        //public const string ApiHost = "http://192.168.3.67:31993";
 
-        public const string GetAllAlerts = "http://192.168.3.62:1234/api/alerts/all/";
-        public const string PutAlert = "http://192.168.3.62:1234/api/alerts/";
-        public const string GetShiftComposition = "http://192.168.3.62:1234/api/people/all/";
-        public const string TakeShiftPlace = "http://192.168.3.62:1234/api/people/";
+        public const string GetAllAlerts = ApiHost + "/api/alerts/all/";
+        public const string PutAlert = ApiHost + "/api/alerts/";
+        public const string GetShiftComposition = ApiHost + "/api/people/all/";
+        public const string TakeShiftPlace = ApiHost + "/api/people/";
 
 
         public static void SaveParameters()
