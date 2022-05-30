@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="DD.ClientWPF.ToDoWidget"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DD.ClientWPF"
+             mc:Ignorable="d" 
+              d:DesignWidth="400" Width="400">
+
+    <Grid Margin="0,0,0,10">
+        <Label x:Name="Container" Style="{StaticResource RoundedLabel}" Width="383" Background="#FFFFDEDE">
+            <StackPanel Margin="0,0,0,0">
+                <StackPanel Orientation="Horizontal" >
+                    <Label Style="{StaticResource RoundedLabel}"
+                           x:Name="ToDoHeader" Foreground="#FF4F4F4F"
+                           FontFamily="Corbel" Background="#FFFFF4F4" VerticalAlignment="Center"
+                           HorizontalContentAlignment="Left" Padding="5,0,0,0" Height="30"
+                           VerticalContentAlignment="Center" MaxHeight="32" Width="336"
+                           Margin="0,0,0,0" FontSize="14">Template Пример</Label>
+
+                    <Button Style="{StaticResource RoundedButton}"
+                            x:Name="TakeButton" Width="32" Height="32" BorderBrush="#00707070"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                            HorizontalContentAlignment="Center" Margin="3,0,0,0" Background="#FFFFF4F4" Foreground="#00000000">
+                        <DynamicResource ResourceKey="TakeAlert"/>
+                    </Button>
+                </StackPanel>
+
+                <Label Style="{StaticResource RoundedLabel}"
+                       x:Name="ToDoDescription"
+                       Foreground="#FF4F4F4F"
+                       FontFamily="Corbel" Background="#FFFFF4F4" Width="370" Margin="0,4,0,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Stretch" FontSize="14" >
+                    <TextBlock x:Name="AlertDescriptionContent" Width="350" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" MaxHeight="100">
+                        Недоступен хост hostname.aqua
+                        last aviability: 22:14:13
+                        hostname: hostname.aqua
+                        Ссылка на инструкцию: link
+                        Ссылка на инструкцию: link
+                        Ссылка на инструкцию: link
+                        Ссылка на инструкцию: link
+                        Ссылка на инструкцию: link
+                        Ссылка на инструкцию: link
+                    </TextBlock>
+                </Label>
+
+                <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                    <Label Style="{StaticResource RoundedLabel}"
+                           x:Name="Worker" Foreground="#FF4F4F4F"
+                           FontFamily="Corbel" Background="#FFFFF4F4" VerticalAlignment="Center"
+                           HorizontalContentAlignment="Left" Padding="5,0,0,0" MinHeight="30"
+                           VerticalContentAlignment="Center" MaxHeight="32" Width="336"
+                           FontSize="14">В работе: Работник</Label>
+                    <Button Style="{StaticResource RoundedButton}"
+                            x:Name="ExpandCollapseButton" Width="32" Height="32" BorderBrush="#00707070"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                            HorizontalContentAlignment="Center" Margin="3,0,0,0" Foreground="#00000000" Background="#FFFFF4F4">
+                        <DynamicResource ResourceKey="ExpandDescription"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Label>
+    </Grid>
+</UserControl>

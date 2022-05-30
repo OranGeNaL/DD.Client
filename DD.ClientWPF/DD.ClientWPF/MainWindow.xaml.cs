@@ -24,6 +24,7 @@ namespace DD.ClientWPF
     public partial class MainWindow : Window
     {
         AlertsWindow alertsWindow = null;
+        ToDoWindow toDoWindow = null;
 
         SettingsWindow settingsWindow = null;
 
@@ -43,6 +44,7 @@ namespace DD.ClientWPF
             ApplyParameters();
 
             alertsButton.Click += AlertsButton_Click;
+            tasksButton.Click += TasksButton_Click;
             settingsButton.Click += SettingsButton_Click;
 
             PeopleOnSmeneListBox.MouseDoubleClick += PeopleOnSmeneListBox_MouseDoubleClick;
@@ -119,10 +121,13 @@ namespace DD.ClientWPF
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            settingsWindow = new SettingsWindow();
-            settingsWindow.Show();
+            //if (settingsWindow == null)
+            //{
+                settingsWindow = new SettingsWindow();
+                settingsWindow.Show();
 
-            settingsWindow.OkButton.Click += SettingsWindowOkButton_Click;
+                settingsWindow.OkButton.Click += SettingsWindowOkButton_Click;
+            //}
         }
 
         private void SettingsWindowOkButton_Click(object sender, RoutedEventArgs e)
@@ -135,6 +140,8 @@ namespace DD.ClientWPF
 
             ParametersKeeper.SaveParameters();
             ApplyParameters();
+
+            settingsWindow = null;
         }
 
         private void ApplyParameters()
@@ -158,6 +165,8 @@ namespace DD.ClientWPF
             closing = true;
             if (alertsWindow != null)
                 alertsWindow.Close();
+            if (toDoWindow != null)
+                toDoWindow.Close();
         }
 
         private void AlertsButton_Click(object sender, RoutedEventArgs e)
@@ -172,6 +181,30 @@ namespace DD.ClientWPF
             {
                 alertsWindow.Show();
                 alertsWindow.Focus();
+            }
+        }
+
+        private void TasksButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(toDoWindow == null)
+            {
+                toDoWindow = new ToDoWindow();
+                toDoWindow.Closing += ToDoWindow_Closing;
+                toDoWindow.Show();
+            }
+            else
+            {
+                toDoWindow.Show();
+                toDoWindow.Focus();
+            }
+        }
+
+        private void ToDoWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!closing)
+            {
+                toDoWindow.Hide();
+                e.Cancel = true;
             }
         }
 

@@ -27,3 +27,9 @@ D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\SettingsWindow.g.cs
 D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\SettingsWindow.baml
 D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\CloseCommentWindow.g.cs
 D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\CloseCommentWindow.baml
+D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\ToDoWindow.g.cs
+D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\ToDoWindow.baml
+D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\ToDoWidget.g.cs
+D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\ToDoWidget.baml
+D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\CreateToDoWindow.g.cs
+D:\DD.Client\DD.ClientWPF\DD.ClientWPF\obj\Debug\CreateToDoWindow.baml

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\DD.Client\DD.ClientWPF\DD.ClientWPF\App.xaml
-6510536241
+9-441181869
 
-132002200072
+18-961321455
 141445661978
-AlertsWindow.xaml;AlertWidget.xaml;CloseCommentWindow.xaml;MainWindow.xaml;SettingsWindow.xaml;Styles\ButtonStyle.xaml;
+AlertsWindow.xaml;AlertWidget.xaml;CloseCommentWindow.xaml;CreateToDoWindow.xaml;MainWindow.xaml;SettingsWindow.xaml;Styles\ButtonStyle.xaml;ToDoWidget.xaml;ToDoWindow.xaml;
 
 False
 

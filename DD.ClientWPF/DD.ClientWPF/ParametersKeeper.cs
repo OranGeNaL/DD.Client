@@ -40,6 +40,9 @@ namespace DD.ClientWPF
         public const string PutAlert = ApiHost + "/api/alerts/";
         public const string GetShiftComposition = ApiHost + "/api/people/all/";
         public const string TakeShiftPlace = ApiHost + "/api/people/";
+        public const string GetAllTodos = ApiHost + "/api/to-do-list/all/";
+        public const string PutTodo = ApiHost + "/api/to-do-list/";
+        public const string CreateTodo = ApiHost + "/api/to-do-list/";
 
 
         public static void SaveParameters()

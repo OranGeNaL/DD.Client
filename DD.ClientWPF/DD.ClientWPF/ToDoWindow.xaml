@@ -1,0 +1,18 @@
+﻿<Window x:Class="DD.ClientWPF.ToDoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DD.ClientWPF"
+        mc:Ignorable="d"
+        Title="Задачи" Height="800" Width="440" ResizeMode="CanMinimize" Background="#FFFFB7B7">
+
+    <StackPanel>
+        <Button x:Name="addTaskButton" Style="{StaticResource RoundedButton}" Height="45" Width="280" Background="#FFFFDEDE" BorderBrush="#00707070" Foreground="#FF4F4F4F" FontSize="22">Добавить задачу</Button>
+        <ScrollViewer>
+            <StackPanel Height="740" x:Name="todoPanel" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True" Margin="0,10,0,0">
+
+            </StackPanel>
+        </ScrollViewer>
+    </StackPanel>
+</Window>

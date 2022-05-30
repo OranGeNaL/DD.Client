@@ -1,0 +1,32 @@
+﻿<Window x:Class="DD.ClientWPF.CreateToDoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DD.ClientWPF"
+        mc:Ignorable="d"
+        Title="Создать задачу" Width="300" ResizeMode="NoResize" SizeToContent="Height">
+    <Grid Background="#FFFFB7B7">
+        <StackPanel Margin="0,5,0,0">
+            <Label Style="{StaticResource RoundedLabel}" Width="260" Background="#FFFFDEDE" Foreground="#00000000" Margin="0,0,0,5">
+                <StackPanel>
+                    <TextBlock FontSize="12" FontFamily="Corbel" VerticalAlignment="Center"
+                       HorizontalAlignment="Left" Foreground="#FF4F4F4F">Название задачи</TextBlock>
+                    <TextBox x:Name="taskNameTextBox" TextWrapping="Wrap" Style="{StaticResource RoundedTextBox}" FontSize="14" FontFamily="Corbel" Width="250" Background="#FFFFF4F4" BorderBrush="#00ABADB3"></TextBox>
+                </StackPanel>
+            </Label>
+
+            <Label Style="{StaticResource RoundedLabel}" Width="260" Background="#FFFFDEDE" Foreground="#00000000" Margin="0,0,0,5">
+                <StackPanel>
+                    <TextBlock FontSize="12" FontFamily="Corbel" VerticalAlignment="Center"
+                       HorizontalAlignment="Left" Foreground="#FF4F4F4F">Описание задачи</TextBlock>
+                    <TextBox x:Name="taskDescriptionTextBox" TextWrapping="Wrap" Style="{StaticResource RoundedTextBox}" FontSize="14" FontFamily="Corbel" Width="250" Background="#FFFFF4F4" BorderBrush="#00ABADB3"></TextBox>
+                </StackPanel>
+            </Label>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,11">
+                <Button x:Name="OkButton" Style="{StaticResource RoundedButton}" Background="#FFFFDEDE" BorderBrush="#00707070" Foreground="#FF4F4F4F" Height="25" Width="60" Margin="0,0,5,0">ОК</Button>
+                <Button x:Name="CancelButton" Style="{StaticResource RoundedButton}" Background="#FFFFDEDE" BorderBrush="#00707070" Foreground="#FF4F4F4F" Height="25" Width="60">Отмена</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
